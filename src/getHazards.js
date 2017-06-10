@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const toSentenceCase = require('./toSentenceCase');
+const sentenceCase = require('sentence-case');
 const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
 function getHazards($) {
@@ -36,7 +36,7 @@ function getHazardsBackup($) {
     return final;
   }, { warnings: [], start: null });
   return setHazardTypes(
-    warnings.map(line => toSentenceCase(_.slice(line, 3, line.length - 3).join('')))
+    warnings.map(line => sentenceCase(_.slice(line, 3, line.length - 3).join('')))
   );
 }
 
