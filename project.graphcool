@@ -1,0 +1,55 @@
+# project: swello-api
+# version: 30
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type User implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
+
+type Zone implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  updatedAt: DateTime!
+  zoneForecasts: [ZoneForecast!]! @relation(name: "ZoneForecastOnZone")
+  zonePublicId: String! @isUnique
+}
+
+type ZoneForecast implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  synopsis: String
+  updatedAt: DateTime!
+  zone: Zone! @relation(name: "ZoneForecastOnZone")
+  zoneForecastHazards: [ZoneForecastHazard!]! @relation(name: "ZoneForecastHazardOnZoneForecast")
+  forecastLastUpdated: DateTime!
+  zoneForecastPeriods: [ZoneForecastPeriod!]! @relation(name: "ZoneForecastPeriodOnZoneForecast")
+}
+
+type ZoneForecastHazard implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  zoneForecast: ZoneForecast @relation(name: "ZoneForecastHazardOnZoneForecast")
+}
+
+type ZoneForecastPeriod implements Node {
+  createdAt: DateTime!
+  forecastTime: DateTime
+  id: ID! @isUnique
+  text: String!
+  updatedAt: DateTime!
+  zoneForecast: ZoneForecast! @relation(name: "ZoneForecastPeriodOnZoneForecast")
+}
