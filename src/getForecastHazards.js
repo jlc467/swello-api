@@ -2,7 +2,7 @@ const _ = require('lodash');
 const sentenceCase = require('sentence-case');
 const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
-function getHazards($) {
+function getForecastHazards($) {
   const hazards = $('[id=anchor-hazards]').map((i, el) => $(el).text()).get();
   const hazardsBackup = getHazardsBackup($);
   console.log('hazardsBackup', hazardsBackup);
@@ -20,21 +20,24 @@ function getHazardsBackup($) {
   if (end === null) {
     return [];
   }
-  const { warnings } = _.slice(warningsNet, start, end + 1).reduce((final, line, index) => {
-    if (_.startsWith(line, '...') === true && _.endsWith(line, '...') === true) {
-      final.warnings.push(line);
+  const { warnings } = _.slice(warningsNet, start, end + 1).reduce(
+    (final, line, index) => {
+      if (_.startsWith(line, '...') === true && _.endsWith(line, '...') === true) {
+        final.warnings.push(line);
+        return final;
+      }
+      if (_.startsWith(line, '...') === true && _.endsWith(line, '...') === false) {
+        final.start = index;
+        return final;
+      }
+      if (_.startsWith(line, '...') === false && _.endsWith(line, '...') === true) {
+        final.warnings.push(_.slice(warnings, final.start, index + 1).join(' '));
+        return final;
+      }
       return final;
-    }
-    if (_.startsWith(line, '...') === true && _.endsWith(line, '...') === false) {
-      final.start = index;
-      return final;
-    }
-    if (_.startsWith(line, '...') === false && _.endsWith(line, '...') === true) {
-      final.warnings.push(_.slice(warnings, final.start, index + 1).join(' '));
-      return final;
-    }
-    return final;
-  }, { warnings: [], start: null });
+    },
+    { warnings: [], start: null }
+  );
   return setHazardTypes(
     warnings.map(line => sentenceCase(_.slice(line, 3, line.length - 3).join('')))
   );
@@ -53,4 +56,4 @@ function setHazardTypes(hazards) {
   });
 }
 
-module.exports = getHazards;
+module.exports = getForecastHazards;

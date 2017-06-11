@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-function getForecasts($) {
+function getForecastPeriods($) {
   const labels = $('.row-forecast').map((i, el) => $(el).find('.forecast-label').text()).get();
   const text = $('.row-forecast').map((i, el) => $(el).find('.forecast-text').text()).get();
   return _.reduce(
@@ -15,4 +15,4 @@ function getForecasts($) {
   );
 }
 
-module.exports = getForecasts;
+module.exports = getForecastPeriods;

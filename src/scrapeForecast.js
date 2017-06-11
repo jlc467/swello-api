@@ -1,10 +1,10 @@
 const cheerio = require('cheerio');
 const $ = cheerio.load(require('./mockForecastHTML'));
-const getHazards = require('./getHazards');
-const getLastUpdated = require('./getLastUpdated');
-const getSynopsis = require('./getSynopsis');
-const getForecasts = require('./getForecasts');
-console.log(getHazards($));
-console.log(getLastUpdated($));
-console.log(getSynopsis($));
-console.log(getForecasts($));
+const getForecastHazards = require('./getForecastHazards');
+const getForecastLastUpdated = require('./getForecastLastUpdated');
+const getForecastSynopsis = require('./getForecastSynopsis');
+const getForecastPeriods = require('./getForecastPeriods');
+console.log(getForecastHazards($));
+console.log(getForecastLastUpdated($));
+console.log(getForecastSynopsis($));
+console.log(getForecastPeriods($));
