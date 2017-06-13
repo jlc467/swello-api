@@ -1,10 +1,21 @@
 const cheerio = require('cheerio');
-const $ = cheerio.load(require('./mockForecastHTML'));
+
 const getForecastHazards = require('./getForecastHazards');
 const getForecastLastUpdated = require('./getForecastLastUpdated');
 const getForecastSynopsis = require('./getForecastSynopsis');
 const getForecastPeriods = require('./getForecastPeriods');
-console.log(getForecastHazards($));
-console.log(getForecastLastUpdated($));
-console.log(getForecastSynopsis($));
-console.log(getForecastPeriods($));
+
+const scrapeForecast = $ => {
+  const result = {
+    forecastHazards: getForecastHazards($),
+    forecastLastUpdated: getForecastLastUpdated($),
+    forecastSynopsis: getForecastSynopsis($),
+    forecastPeriods: getForecastPeriods($)
+  };
+  //console.log(result);
+  return result;
+};
+
+//scrapeForecast(cheerio.load(require('./__tests__/mocks/mock.ForecastHTML')));
+
+module.exports = scrapeForecast;

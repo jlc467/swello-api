@@ -4,9 +4,10 @@ const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
 function getForecastHazards($) {
   const hazards = $('[id=anchor-hazards]').map((i, el) => $(el).text()).get();
-  const hazardsBackup = getHazardsBackup($);
-  console.log('hazardsBackup', hazardsBackup);
-  return setHazardTypes(hazards);
+  return {
+    hazards: setHazardTypes(hazards),
+    hazardsBackup: getHazardsBackup($)
+  };
 }
 
 function getHazardsBackup($) {

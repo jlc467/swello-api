@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`forecast scrape returns forecast periods 1`] = `
+Array [
+  Object {
+    "label": "Today",
+    "text": "NW winds 15 to 25 kt...with gusts to 35 kt late in the afternoon. Combined seas 6 to 7 ft dominant period 10  seconds...building to 7 to 9 ft dominant period 8 seconds in the  afternoon.",
+  },
+  Object {
+    "label": "Tonight",
+    "text": "NW winds 20 to 30 kt, with gusts to 35 kt. Combined seas  7 to 9 ft dominant period 8 seconds.",
+  },
+  Object {
+    "label": "Sun",
+    "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 7 to  10 ft dominant period 8 seconds.",
+  },
+  Object {
+    "label": "Sun Night",
+    "text": "NW winds 20 to 30 kt with gusts to 35 kt. Strongest  around point conception. Combined seas 9 to 11 ft dominant period 8  seconds.",
+  },
+  Object {
+    "label": "Mon",
+    "text": "NW winds 15 to 25 kt, with gusts to 30 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
+  },
+  Object {
+    "label": "Mon Night",
+    "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
+  },
+  Object {
+    "label": "Tue",
+    "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 7 to 9 ft.",
+  },
+  Object {
+    "label": "Wed",
+    "text": "NW winds 20 to 30 kt with gusts to 40 kt. Combined seas 7 to 9 ft.",
+  },
+]
+`;
+
+exports[`forecast scrape returns forecast synopsis 1`] = `
+"PZZ600-102245-
+825 AM PDT Sat Jun 10 2017
+
+.Synopsis for the southern California coast and Santa Barbara
+Channel including the Channel Islands National Marine Sanctuary
+and National Park...A 1024 mb high was located 1000 nm w of Point
+Conception...and a 1004 mb low was located over S Nevada. Strong NW
+winds will affect portions of the Coastal Waters this afternoon
+through Sunday.
+
+$$"
+`;
+
+exports[`forecast scrape returns full forecast 1`] = `
+Object {
+  "forecastHazards": Object {
+    "hazards": Array [
+      Object {
+        "text": "Small Craft Advisory  until June 10, 03:00 PM PDT",
+        "type": "Small Craft Advisory",
+      },
+      Object {
+        "text": "Gale Warning in effect from June 10,  03:00 PM PDT until June 12, 03:00 AM PDT",
+        "type": "Gale Warning",
+      },
+    ],
+    "hazardsBackup": Array [
+      Object {
+        "text": "Small craft advisory in effect until 3 pm pdt this afternoon",
+        "type": "Small Craft Advisory",
+      },
+      Object {
+        "text": "Gale warning in effect from 3 pm pdt this afternoon through late sunday night",
+        "type": "Gale Warning",
+      },
+    ],
+  },
+  "forecastLastUpdated": 2017-06-12T15:25:00.000Z,
+  "forecastPeriods": Array [
+    Object {
+      "label": "Today",
+      "text": "NW winds 15 to 25 kt...with gusts to 35 kt late in the afternoon. Combined seas 6 to 7 ft dominant period 10  seconds...building to 7 to 9 ft dominant period 8 seconds in the  afternoon.",
+    },
+    Object {
+      "label": "Tonight",
+      "text": "NW winds 20 to 30 kt, with gusts to 35 kt. Combined seas  7 to 9 ft dominant period 8 seconds.",
+    },
+    Object {
+      "label": "Sun",
+      "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 7 to  10 ft dominant period 8 seconds.",
+    },
+    Object {
+      "label": "Sun Night",
+      "text": "NW winds 20 to 30 kt with gusts to 35 kt. Strongest  around point conception. Combined seas 9 to 11 ft dominant period 8  seconds.",
+    },
+    Object {
+      "label": "Mon",
+      "text": "NW winds 15 to 25 kt, with gusts to 30 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
+    },
+    Object {
+      "label": "Mon Night",
+      "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
+    },
+    Object {
+      "label": "Tue",
+      "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 7 to 9 ft.",
+    },
+    Object {
+      "label": "Wed",
+      "text": "NW winds 20 to 30 kt with gusts to 40 kt. Combined seas 7 to 9 ft.",
+    },
+  ],
+  "forecastSynopsis": "PZZ600-102245-
+825 AM PDT Sat Jun 10 2017
+
+.Synopsis for the southern California coast and Santa Barbara
+Channel including the Channel Islands National Marine Sanctuary
+and National Park...A 1024 mb high was located 1000 nm w of Point
+Conception...and a 1004 mb low was located over S Nevada. Strong NW
+winds will affect portions of the Coastal Waters this afternoon
+through Sunday.
+
+$$",
+}
+`;
+
+exports[`forecast scrape returns hazards 1`] = `
+Object {
+  "hazards": Array [
+    Object {
+      "text": "Small Craft Advisory  until June 10, 03:00 PM PDT",
+      "type": "Small Craft Advisory",
+    },
+    Object {
+      "text": "Gale Warning in effect from June 10,  03:00 PM PDT until June 12, 03:00 AM PDT",
+      "type": "Gale Warning",
+    },
+  ],
+  "hazardsBackup": Array [
+    Object {
+      "text": "Small craft advisory in effect until 3 pm pdt this afternoon",
+      "type": "Small Craft Advisory",
+    },
+    Object {
+      "text": "Gale warning in effect from 3 pm pdt this afternoon through late sunday night",
+      "type": "Gale Warning",
+    },
+  ],
+}
+`;
+
+exports[`forecast scrape returns last updated 1`] = `2017-06-12T15:25:00.000Z`;

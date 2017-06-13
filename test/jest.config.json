@@ -1,0 +1,11 @@
+{
+  "rootDir": "../src",
+  "testPathIgnorePatterns": [
+    "__tests__/mocks"
+  ],
+  "coverageDirectory": "../test/coverage/jest",
+  "coverageReporters": ["lcov", "text"],
+  "globals": {
+
+  }
+}
