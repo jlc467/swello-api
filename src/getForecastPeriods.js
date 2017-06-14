@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const getForecastLastUpdated = require('./getForecastLastUpdated');
 const moment = require('moment');
-const { weekdays, weekdaysShort, todayAliasesIsNightTime } = require('./utility');
+const { weekdaysShort, todayAliasesIsNightTime } = require('./utility');
 const chrono = require('chrono-node');
 
 function getForecastPeriods($) {
@@ -14,7 +14,11 @@ function getForecastPeriods($) {
     labels,
     (final, label, index) => {
       if (text[index]) {
-        final.push({ label, forecastTime: getDateTime(label, lastUpdated), text: text[index] });
+        final.push({
+          label,
+          forecastTime: lastUpdated ? getDateTime(label, lastUpdated) : null,
+          text: text[index]
+        });
       }
       return final;
     },
