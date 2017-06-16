@@ -7,17 +7,12 @@ const getForecastPeriods = require('./getForecastPeriods');
 
 const scrapeForecast = $ => {
   const result = {
-    forecastHazards: getForecastHazards($),
     forecastLastUpdated: getForecastLastUpdated($),
+    forecastHazards: getForecastHazards($),
     forecastSynopsis: getForecastSynopsis($),
     forecastPeriods: getForecastPeriods($)
   };
-  console.log(result);
   return result;
 };
-
-_.each(require('./__tests__/mocks/mockForecasts'), f => {
-  scrapeForecast(cheerio.load(f));
-});
 
 module.exports = scrapeForecast;

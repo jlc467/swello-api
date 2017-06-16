@@ -16,7 +16,9 @@ function getForecastPeriods($) {
       if (text[index]) {
         final.push({
           label,
-          forecastTime: lastUpdated ? getDateTime(label, lastUpdated) : null,
+          forecastTime: lastUpdated
+            ? new Date(getDateTime(label, lastUpdated)).toISOString()
+            : null,
           text: text[index]
         });
       }

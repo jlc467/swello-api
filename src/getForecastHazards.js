@@ -50,10 +50,7 @@ function setHazardTypes(hazards) {
       HAZARD_TYPES,
       t => hazardText.toUpperCase().indexOf(t.toUpperCase()) > -1
     );
-    if (hazardTypeMatch) {
-      return { type: hazardTypeMatch, text: hazardText };
-    }
-    return { type: null, text: hazardText };
+    return { hazardType: hazardTypeMatch ? hazardTypeMatch : '', hazardText };
   });
 }
 
