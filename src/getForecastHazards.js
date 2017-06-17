@@ -1,8 +1,9 @@
+// @flow
 const _ = require('lodash');
 const sentenceCase = require('sentence-case');
 const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
-function getForecastHazards($) {
+function getForecastHazards($: any) {
   const hazards = $('[id=anchor-hazards]').map((i, el) => $(el).text()).get();
   return {
     hazards: setHazardTypes(hazards),
@@ -10,7 +11,7 @@ function getForecastHazards($) {
   };
 }
 
-function getHazardsBackup($) {
+function getHazardsBackup($: any) {
   const warningsNet = $('#detailed-forecast-body')
     .contents()
     .filter((i, el) => el.nodeType == 3)
@@ -37,11 +38,9 @@ function getHazardsBackup($) {
       }
       return final;
     },
-    { warnings: [], start: null }
+    { warnings: [], start: 0 }
   );
-  return setHazardTypes(
-    warnings.map(line => sentenceCase(_.slice(line, 3, line.length - 3).join('')))
-  );
+  return setHazardTypes(warnings.map(line => sentenceCase(_.trim(line, '.'))));
 }
 
 function setHazardTypes(hazards) {

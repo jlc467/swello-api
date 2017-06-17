@@ -1,9 +1,10 @@
+// @flow
 const chrono = require('chrono-node');
 const _ = require('lodash');
-const { weekdaysShort } = require('./utility');
+const { weekdaysShort }: { weekdaysShort: Array<string> } = require('./utility');
 const moment = require('moment');
 
-function getForecastLastUpdated($) {
+function getForecastLastUpdated($: any) {
   const lastUpdated = $('.marine-update-notice').text().replace('Last Update:', '').trim();
   const parts = chrono.parse(lastUpdated);
   if (_.size(parts)) {

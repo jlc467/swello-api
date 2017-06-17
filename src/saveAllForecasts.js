@@ -1,3 +1,4 @@
+// @flow
 const _ = require('lodash');
 const saveForecast = require('./saveForecast');
 const scrapeForecast = require('./scrapeForecast');
@@ -15,6 +16,7 @@ const saveAllForecasts = async () => {
     console.log('attempting to save forecast', zonePublicId);
     console.time('saveForecast');
     await saveForecast(parsed);
+    console.log(JSON.stringify(parsed, null, 2));
     console.log('saved', zonePublicId);
     console.timeEnd('saveForecast');
   }
@@ -22,7 +24,7 @@ const saveAllForecasts = async () => {
 
 saveAllForecasts().catch(e => console.error('error', e));
 
-function getForecast(zoneId) {
+function getForecast(zoneId: string) {
   console.log('fetching forecast html');
   console.time('getForecast');
   return new Promise((resolve, reject) => {
