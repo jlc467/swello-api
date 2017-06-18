@@ -12,7 +12,11 @@ const saveAllForecasts = async () => {
 
   await parallel(
     _.map(allZones, ({ zonePublicId, id }) => async () => {
-      const forecastHTML = await getForecast(zonePublicId);
+      const forecastHTML = await getForecastHTML(zonePublicId);
+      if (!forecastHTML) {
+        //TODO: log missing html
+        return;
+      }
       const parsed = scrapeForecast(cheerio.load(forecastHTML));
       console.log('attempting to save forecast', zonePublicId);
       console.time(`saveForecast ${zonePublicId}`);
@@ -28,14 +32,17 @@ const saveAllForecasts = async () => {
 
 saveAllForecasts().catch(e => console.error('error', e));
 
-function getForecast(zoneId: string): Promise<string> {
+function getForecastHTML(zoneId: string): Promise<null | string> {
   console.log('fetching forecast html');
-  console.time(`getForecast ${zoneId}`);
+  console.time(`getForecastHTML ${zoneId}`);
   return new Promise((resolve, reject) => {
     read(`http://marine.weather.gov/MapClick.php?zoneid=${zoneId}`, (err, forecast, res) => {
       console.log('got html', zoneId);
-      console.timeEnd(`getForecast ${zoneId}`);
-      return resolve(forecast.html);
+      console.timeEnd(`getForecastHTML ${zoneId}`);
+      if (forecast && forecast.html) {
+        return resolve(forecast.html);
+      }
+      return null;
     });
   });
 }
