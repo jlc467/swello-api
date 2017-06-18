@@ -1,3 +1,4 @@
+//@flow
 const _ = require('lodash');
 const getForecastLastUpdated = require('./getForecastLastUpdated');
 const moment = require('moment');
@@ -12,22 +13,16 @@ function getForecastPeriods($: any): forecastPeriods {
     .map((i, el) => $(el).find('.forecast-label').text().trim())
     .get();
   const text = $('.row-forecast').map((i, el) => $(el).find('.forecast-text').text().trim()).get();
-  return _.reduce(
-    labels,
-    (final, label, index) => {
-      if (text[index]) {
-        final.push({
-          label,
-          forecastTime: lastUpdated
-            ? new Date(getDateTime(label, lastUpdated)).toISOString()
-            : null,
-          text: text[index]
-        });
-      }
-      return final;
-    },
-    []
-  );
+  return labels.reduce((final, label, index) => {
+    if (text[index]) {
+      final.push({
+        label,
+        forecastTime: lastUpdated ? new Date(getDateTime(label, lastUpdated)).toISOString() : null,
+        text: text[index]
+      });
+    }
+    return final;
+  }, []);
 }
 
 function getDateTime(label, lastUpdated) {
