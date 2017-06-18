@@ -1,4 +1,4 @@
-//@flow
+// @flow
 const _ = require('lodash');
 const getForecastLastUpdated = require('./getForecastLastUpdated');
 const moment = require('moment');

@@ -14,10 +14,9 @@ const saveAllForecasts = async () => {
     _.map(allZones, ({ zonePublicId, id }) => async () => {
       const forecastHTML = await getForecast(zonePublicId);
       const parsed = scrapeForecast(cheerio.load(forecastHTML));
-      parsed.zoneId = id;
       console.log('attempting to save forecast', zonePublicId);
       console.time(`saveForecast ${zonePublicId}`);
-      await saveForecast(parsed);
+      await saveForecast(parsed, id);
       //console.log(JSON.stringify(parsed, null, 2));
       console.log('saved', zonePublicId);
       console.timeEnd(`saveForecast ${zonePublicId}`);

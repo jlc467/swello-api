@@ -1,7 +1,9 @@
+// @flow
 const chrono = require('chrono-node');
 const _ = require('lodash');
 
-function getForecastSynopsis($) {
+export type forecastSynopsis = null | string;
+function getForecastSynopsis($: any): forecastSynopsis {
   const match = _.get(
     $('#detailed-forecast-body').find('div strong').filter((i, el) => $(el).text() === 'Synopsis'),
     '[0].next.data',
