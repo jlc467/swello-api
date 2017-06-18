@@ -43,7 +43,7 @@ function getHazardsBackup($: any) {
   return setHazardTypes(warnings.map(line => sentenceCase(_.trim(line, '.'))));
 }
 
-function setHazardTypes(hazards) {
+function setHazardTypes(hazards: string[]): { hazardType: string, hazardText: string }[] {
   return _.map(hazards, hazardText => {
     const hazardTypeMatch = _.find(
       HAZARD_TYPES,

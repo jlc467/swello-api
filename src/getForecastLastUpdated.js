@@ -4,7 +4,7 @@ const _ = require('lodash');
 const { weekdaysShort }: { weekdaysShort: Array<string> } = require('./utility');
 const moment = require('moment');
 
-function getForecastLastUpdated($: any) {
+function getForecastLastUpdated($: any): null | {| dateTime: string, localDayOfWeek: string |} {
   const lastUpdated = $('.marine-update-notice').text().replace('Last Update:', '').trim();
   const parts = chrono.parse(lastUpdated);
   if (_.size(parts)) {

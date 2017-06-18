@@ -110,6 +110,10 @@ assert-plus@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-0.2.0.tgz#d74e1b87e7affc0db8aadb7021f3fe48101ab234"
 
+async-await-parallel@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/async-await-parallel/-/async-await-parallel-1.0.0.tgz#4913b0e0abfbec934a579331f8d8d75e31b0d349"
+
 async@^1.4.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
