@@ -4,7 +4,9 @@ const moment = require('moment');
 const { weekdaysShort, todayAliasesIsNightTime } = require('./utility');
 const chrono = require('chrono-node');
 
-function getForecastPeriods($) {
+type period = {| label: string, forecastTime: string | null, text: string |};
+export type forecastPeriods = period[];
+function getForecastPeriods($: any): forecastPeriods {
   const lastUpdated = getForecastLastUpdated($);
   const labels = $('.row-forecast')
     .map((i, el) => $(el).find('.forecast-label').text().trim())

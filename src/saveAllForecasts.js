@@ -6,7 +6,6 @@ const read = require('node-read');
 const cheerio = require('cheerio');
 const getZones = require('./getZones');
 const parallel = require('async-await-parallel');
-
 const saveAllForecasts = async () => {
   console.time(`saveAllForecasts`);
   const allZones = await getZones();

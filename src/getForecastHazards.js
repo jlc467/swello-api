@@ -3,7 +3,9 @@ const _ = require('lodash');
 const sentenceCase = require('sentence-case');
 const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
-function getForecastHazards($: any) {
+export type hazards = {| hazardType: string, hazardText: string |}[];
+export type forecastHazards = {| hazards: hazards, hazardsBackup: hazards |};
+function getForecastHazards($: any): forecastHazards {
   const hazards = $('[id=anchor-hazards]').map((i, el) => $(el).text()).get();
   return {
     hazards: setHazardTypes(hazards),
@@ -43,7 +45,7 @@ function getHazardsBackup($: any) {
   return setHazardTypes(warnings.map(line => sentenceCase(_.trim(line, '.'))));
 }
 
-function setHazardTypes(hazards: string[]): { hazardType: string, hazardText: string }[] {
+function setHazardTypes(hazards: string[]): hazards {
   return _.map(hazards, hazardText => {
     const hazardTypeMatch = _.find(
       HAZARD_TYPES,

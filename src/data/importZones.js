@@ -4,7 +4,8 @@ const { request, GraphQLClient } = require('graphql-request');
 const ENDPOINT = 'https://api.graph.cool/simple/v1/swello-api';
 const client = new GraphQLClient(ENDPOINT, { headers: {} });
 
-const createZone = async zone => {
+type zone = {| name: string, zonePublicId: string |};
+const createZone = async (zone: zone) => {
   const { name, zonePublicId } = zone;
 
   const query = `mutation {
@@ -19,7 +20,7 @@ const createZone = async zone => {
   return result.zone.id;
 };
 
-const createZones = async (rawZones: {| value: {| name: string, zonePublicId: string |} |}[]) => {
+const createZones = async (rawZones: {| value: zone |}[]) => {
   return await Promise.all(rawZones.map(zone => createZone(zone.value)));
 };
 
