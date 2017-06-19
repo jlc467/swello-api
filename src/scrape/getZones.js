@@ -1,6 +1,6 @@
 // @flow
 const { request, GraphQLClient } = require('graphql-request');
-const ENDPOINT = 'https://api.graph.cool/simple/v1/swello-api';
+const ENDPOINT = process.env.GRAPHQL_ENDPOINT;
 const client = new GraphQLClient(ENDPOINT, { headers: {} });
 
 type allZones = {| id: string, zonePublicId: string |}[];

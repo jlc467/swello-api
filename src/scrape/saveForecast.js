@@ -2,7 +2,7 @@
 const { request, GraphQLClient } = require('graphql-request');
 const util = require('util');
 const _ = require('lodash');
-const ENDPOINT = 'https://api.graph.cool/simple/v1/swello-api';
+const ENDPOINT = process.env.GRAPHQL_ENDPOINT;
 const client = new GraphQLClient(ENDPOINT, { headers: {} });
 import type { forecastLastUpdated } from './getForecastLastUpdated';
 import type { forecastHazards } from './getForecastHazards';
@@ -31,8 +31,7 @@ const saveForecast = async (parsed: parsed, zoneId: string): Promise<null | { id
       id
     }
   }`.replace(/'/g, '"');
-  const result = await client.request(query);
-  return result;
+  return await client.request(query);
 };
 
 module.exports = saveForecast;

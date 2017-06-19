@@ -3,6 +3,10 @@
   "testPathIgnorePatterns": [
     "__tests__/mocks"
   ],
+  "testEnvironment": "node",
+  "transform": {
+    "\\.js$": "../test/removeFlow"
+  },
   "coverageDirectory": "../test/coverage/jest",
   "coverageReporters": ["lcov", "text"],
   "globals": {

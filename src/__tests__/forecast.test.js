@@ -1,38 +1,31 @@
 const cheerio = require('cheerio');
-const getForecastHazards = require('../getForecastHazards');
-const getForecastLastUpdated = require('../getForecastLastUpdated');
-const getForecastSynopsis = require('../getForecastSynopsis');
-const getForecastPeriods = require('../getForecastPeriods');
-const scrapeForecast = require('../scrapeForecast');
-let $ = null;
-
+const getForecastHazards = require('../scrape/getForecastHazards');
+const getForecastLastUpdated = require('../scrape/getForecastLastUpdated');
+const getForecastSynopsis = require('../scrape/getForecastSynopsis');
+const getForecastPeriods = require('../scrape/getForecastPeriods');
+let toScrape = null;
 describe('forecast scrape', () => {
   beforeEach(() => {
-    $ = cheerio.load(require('./mocks/mock.ForecastHTML'));
+    toScrape = require('./mocks/mockForecasts').map(html => cheerio.load(html));
   });
 
   it('returns last updated', () => {
-    const result = getForecastLastUpdated($);
+    const result = toScrape.map($ => getForecastLastUpdated($));
     expect(result).toMatchSnapshot();
   });
 
   it('returns hazards', () => {
-    const result = getForecastHazards($);
+    const result = toScrape.map($ => getForecastHazards($));
     expect(result).toMatchSnapshot();
   });
 
   it('returns forecast periods', () => {
-    const result = getForecastPeriods($);
+    const result = toScrape.map($ => getForecastPeriods($));
     expect(result).toMatchSnapshot();
   });
 
   it('returns forecast synopsis', () => {
-    const result = getForecastSynopsis($);
-    expect(result).toMatchSnapshot();
-  });
-
-  it('returns full forecast', () => {
-    const result = scrapeForecast($);
+    const result = toScrape.map($ => getForecastSynopsis($));
     expect(result).toMatchSnapshot();
   });
 });

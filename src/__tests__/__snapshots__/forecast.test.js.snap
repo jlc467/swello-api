@@ -2,134 +2,205 @@
 
 exports[`forecast scrape returns forecast periods 1`] = `
 Array [
-  Object {
-    "forecastTime": 2017-06-10T16:00:00.000Z,
-    "label": "Today",
-    "text": "NW winds 15 to 25 kt...with gusts to 35 kt late in the afternoon. Combined seas 6 to 7 ft dominant period 10  seconds...building to 7 to 9 ft dominant period 8 seconds in the  afternoon.",
-  },
-  Object {
-    "forecastTime": 2017-06-11T02:00:00.000Z,
-    "label": "Tonight",
-    "text": "NW winds 20 to 30 kt, with gusts to 35 kt. Combined seas  7 to 9 ft dominant period 8 seconds.",
-  },
-  Object {
-    "forecastTime": 2017-06-11T16:00:00.000Z,
-    "label": "Sun",
-    "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 7 to  10 ft dominant period 8 seconds.",
-  },
-  Object {
-    "forecastTime": 2017-06-11T16:00:00.000Z,
-    "label": "Sun Night",
-    "text": "NW winds 20 to 30 kt with gusts to 35 kt. Strongest  around point conception. Combined seas 9 to 11 ft dominant period 8  seconds.",
-  },
-  Object {
-    "forecastTime": 2017-06-12T16:00:00.000Z,
-    "label": "Mon",
-    "text": "NW winds 15 to 25 kt, with gusts to 30 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
-  },
-  Object {
-    "forecastTime": 2017-06-12T16:00:00.000Z,
-    "label": "Mon Night",
-    "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
-  },
-  Object {
-    "forecastTime": 2017-06-13T16:00:00.000Z,
-    "label": "Tue",
-    "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 7 to 9 ft.",
-  },
-  Object {
-    "forecastTime": 2017-06-14T16:00:00.000Z,
-    "label": "Wed",
-    "text": "NW winds 20 to 30 kt with gusts to 40 kt. Combined seas 7 to 9 ft.",
-  },
-]
-`;
-
-exports[`forecast scrape returns forecast synopsis 1`] = `
-"PZZ600-102245-
-825 AM PDT Sat Jun 10 2017
-
-.Synopsis for the southern California coast and Santa Barbara
-Channel including the Channel Islands National Marine Sanctuary
-and National Park...A 1024 mb high was located 1000 nm w of Point
-Conception...and a 1004 mb low was located over S Nevada. Strong NW
-winds will affect portions of the Coastal Waters this afternoon
-through Sunday.
-
-$$"
-`;
-
-exports[`forecast scrape returns full forecast 1`] = `
-Object {
-  "forecastHazards": Object {
-    "hazards": Array [
-      Object {
-        "text": "Small Craft Advisory  until June 10, 03:00 PM PDT",
-        "type": "Small Craft Advisory",
-      },
-      Object {
-        "text": "Gale Warning in effect from June 10,  03:00 PM PDT until June 12, 03:00 AM PDT",
-        "type": "Gale Warning",
-      },
-    ],
-    "hazardsBackup": Array [
-      Object {
-        "text": "Small craft advisory in effect until 3 pm pdt this afternoon",
-        "type": "Small Craft Advisory",
-      },
-      Object {
-        "text": "Gale warning in effect from 3 pm pdt this afternoon through late sunday night",
-        "type": "Gale Warning",
-      },
-    ],
-  },
-  "forecastLastUpdated": Object {
-    "dateTime": 2017-06-10T15:25:00.000Z,
-    "localDayOfWeek": "SAT",
-  },
-  "forecastPeriods": Array [
+  Array [
     Object {
-      "forecastTime": 2017-06-10T16:00:00.000Z,
+      "forecastTime": "2017-06-10T16:00:00.000Z",
       "label": "Today",
       "text": "NW winds 15 to 25 kt...with gusts to 35 kt late in the afternoon. Combined seas 6 to 7 ft dominant period 10  seconds...building to 7 to 9 ft dominant period 8 seconds in the  afternoon.",
     },
     Object {
-      "forecastTime": 2017-06-11T02:00:00.000Z,
+      "forecastTime": "2017-06-11T02:00:00.000Z",
       "label": "Tonight",
       "text": "NW winds 20 to 30 kt, with gusts to 35 kt. Combined seas  7 to 9 ft dominant period 8 seconds.",
     },
     Object {
-      "forecastTime": 2017-06-11T16:00:00.000Z,
+      "forecastTime": "2017-06-11T16:00:00.000Z",
       "label": "Sun",
       "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 7 to  10 ft dominant period 8 seconds.",
     },
     Object {
-      "forecastTime": 2017-06-11T16:00:00.000Z,
+      "forecastTime": "2017-06-11T16:00:00.000Z",
       "label": "Sun Night",
       "text": "NW winds 20 to 30 kt with gusts to 35 kt. Strongest  around point conception. Combined seas 9 to 11 ft dominant period 8  seconds.",
     },
     Object {
-      "forecastTime": 2017-06-12T16:00:00.000Z,
+      "forecastTime": "2017-06-12T16:00:00.000Z",
       "label": "Mon",
       "text": "NW winds 15 to 25 kt, with gusts to 30 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
     },
     Object {
-      "forecastTime": 2017-06-12T16:00:00.000Z,
+      "forecastTime": "2017-06-12T16:00:00.000Z",
       "label": "Mon Night",
       "text": "NW winds 20 to 25 kt with gusts to 35 kt. Combined seas 8 to 10 ft dominant period 8 seconds.",
     },
     Object {
-      "forecastTime": 2017-06-13T16:00:00.000Z,
+      "forecastTime": "2017-06-13T16:00:00.000Z",
       "label": "Tue",
       "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 7 to 9 ft.",
     },
     Object {
-      "forecastTime": 2017-06-14T16:00:00.000Z,
+      "forecastTime": "2017-06-14T16:00:00.000Z",
       "label": "Wed",
       "text": "NW winds 20 to 30 kt with gusts to 40 kt. Combined seas 7 to 9 ft.",
     },
   ],
-  "forecastSynopsis": "PZZ600-102245-
+  Array [
+    Object {
+      "forecastTime": "2017-06-14T02:00:00.000Z",
+      "label": "Tonight",
+      "text": "NW winds 25 to 30 kt...becoming 15 to 25 kt after midnight. Gusts to 35 kt. Combined seas 9 to 10 ft dominant period 8 seconds. Patchy fog after midnight.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wed",
+      "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 7 to 9 ft dominant period 9 seconds. Patchy fog in the morning.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wed Night",
+      "text": "NW winds 25 to 30 kt...becoming 15 to 25 kt after midnight. Gusts to 35 kt. Combined seas 9 to 10 ft dominant period 9 seconds. Patchy fog after midnight.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thu",
+      "text": "NW winds 15 to 25 kt...becoming 25 to 30 kt in the afternoon. Gusts to 35 kt. Combined seas 8 to 9 ft dominant period 9 seconds... Building to 10 ft dominant period 9 seconds in the afternoon. Patchy fog in the morning.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thu Night",
+      "text": "NW winds 20 to 30 kt with gusts to 40 kt. Combined seas 10 to 12 ft dominant period 9 seconds.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Fri",
+      "text": "NW winds 15 to 25 kt with gusts to 30 kt. Combined seas 9 to 10 ft dominant period 9 seconds.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Fri Night",
+      "text": "NW winds 15 to 25 kt with gusts to 35 kt. Combined seas 9 to 10 ft dominant period 9 seconds.",
+    },
+    Object {
+      "forecastTime": "2017-06-17T16:00:00.000Z",
+      "label": "Sat",
+      "text": "NW winds 15 to 25 kt with gusts to 30 kt. Combined seas 9 to 11 ft.",
+    },
+    Object {
+      "forecastTime": "2017-06-18T16:00:00.000Z",
+      "label": "Sun",
+      "text": "NW winds 10 to 20 kt. Wind waves 1 to 3 ft. NW swell 8 to 10 ft.",
+    },
+  ],
+  Array [
+    Object {
+      "forecastTime": "2017-06-14T02:00:00.000Z",
+      "label": "Tonight",
+      "text": "East winds around 10 knots. Bay and inland waters a light chop. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wednesday",
+      "text": "Southeast winds around 10 knots then becoming southwest in the afternoon. Bay and inland waters a light chop. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wednesday Night",
+      "text": "Northeast winds around 10 knots then becoming east around 5 knots after midnight. Bay and inland waters a light chop. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thursday",
+      "text": "Southeast winds around 5 knots then becoming southwest around 10 knots in the afternoon. Bay and inland waters a light chop. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thursday Night",
+      "text": "West winds around 5 knots. Bay and inland waters smooth. Isolated thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Friday",
+      "text": "Southwest winds around 5 knots. Bay and inland waters smooth. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Friday Night",
+      "text": "Southwest winds around 5 knots. Bay and inland waters smooth. Isolated thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-17T16:00:00.000Z",
+      "label": "Saturday",
+      "text": "South winds around 5 knots then becoming southwest in the afternoon. Bay and inland waters smooth. Scattered thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-17T16:00:00.000Z",
+      "label": "Saturday Night",
+      "text": "West winds around 5 knots then becoming east after midnight. Bay and inland waters smooth. Isolated thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-18T16:00:00.000Z",
+      "label": "Sunday",
+      "text": "Southeast winds around 5 knots. Bay and inland waters smooth. Scattered thunderstorms.",
+    },
+  ],
+  Array [
+    Object {
+      "forecastTime": "2017-06-14T02:00:00.000Z",
+      "label": "Tonight",
+      "text": "Southeast winds 5 to 10 knots. Seas 3 feet with a dominant period 8 seconds. Chance of showers and slight chance of thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wednesday",
+      "text": "Southeast winds 5 to 10 knots. Seas 2 to 3 feet with a dominant period 8 seconds. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-14T16:00:00.000Z",
+      "label": "Wednesday Night",
+      "text": "South winds 5 to 10 knots. Seas 2 to 3 feet. Chance of showers and thunderstorms in the evening, then slight chance of showers and thunderstorms after midnight.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thursday",
+      "text": "South winds 5 to 10 knots. Seas 2 to 3 feet. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-15T16:00:00.000Z",
+      "label": "Thursday Night",
+      "text": "South winds 10 to 15 knots becoming southwest 5 to 10 knots after midnight. Seas 2 to 3 feet. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Friday",
+      "text": "Southwest winds 5 knots becoming south 5 to 10 knots in the afternoon. Seas 2 to 3 feet. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-16T16:00:00.000Z",
+      "label": "Friday Night",
+      "text": "South winds 5 to 10 knots. Seas 2 to 3 feet. Showers and thunderstorms likely.",
+    },
+    Object {
+      "forecastTime": "2017-06-17T16:00:00.000Z",
+      "label": "Saturday",
+      "text": "Southeast winds 5 to 10 knots. Seas 2 to 3 feet. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-17T16:00:00.000Z",
+      "label": "Saturday Night",
+      "text": "South winds 5 to 10 knots. Seas 3 to 4 feet. Chance of showers and thunderstorms.",
+    },
+    Object {
+      "forecastTime": "2017-06-18T16:00:00.000Z",
+      "label": "Sunday",
+      "text": "Southeast winds 5 to 10 knots increasing to 10 to 15 knots in the afternoon. Seas 3 to 4 feet. Chance of showers and thunderstorms.",
+    },
+  ],
+]
+`;
+
+exports[`forecast scrape returns forecast synopsis 1`] = `
+Array [
+  "PZZ600-102245-
 825 AM PDT Sat Jun 10 2017
 
 .Synopsis for the southern California coast and Santa Barbara
@@ -140,37 +211,107 @@ winds will affect portions of the Coastal Waters this afternoon
 through Sunday.
 
 $$",
-}
+  "PZZ600-140500-
+215 PM PDT Tue Jun 13 2017
+
+.Synopsis for the southern California coast and Santa Barbara
+Channel including the Channel Islands National Marine Sanctuary
+and National Park...At 21z or 2 PM PDT, a 1028 MB surface high was
+centered 600 nm west of San Francisco. A 997 MB thermal low was
+centered in Utah. This pattern will change little through Wed.
+
+
+$$",
+  "High pressure will remain over the region through the
+end of the week...with generally east to southeast winds remaining
+in place...becoming onshore near the coast each afternoon. Scattered
+to numerous showers and thunderstorms will continue to be the main
+concern each day...with gusty winds...locally rough seas...and
+frequent lightning possible.",
+  "A high pressure ridge just north of the waters will
+settle closer to central Florida by late week. This will veer
+light onshore winds to a more southerly flow. High moisture levels
+will support scattered showers and lightning storms each day.
+Conditions will remain mostly favorable for open water navigation,
+but locally higher winds and seas will occur near storms.",
+]
 `;
 
 exports[`forecast scrape returns hazards 1`] = `
-Object {
-  "hazards": Array [
-    Object {
-      "text": "Small Craft Advisory  until June 10, 03:00 PM PDT",
-      "type": "Small Craft Advisory",
-    },
-    Object {
-      "text": "Gale Warning in effect from June 10,  03:00 PM PDT until June 12, 03:00 AM PDT",
-      "type": "Gale Warning",
-    },
-  ],
-  "hazardsBackup": Array [
-    Object {
-      "text": "Small craft advisory in effect until 3 pm pdt this afternoon",
-      "type": "Small Craft Advisory",
-    },
-    Object {
-      "text": "Gale warning in effect from 3 pm pdt this afternoon through late sunday night",
-      "type": "Gale Warning",
-    },
-  ],
-}
+Array [
+  Object {
+    "hazards": Array [
+      Object {
+        "hazardText": "Small Craft Advisory  until June 10, 03:00 PM PDT",
+        "hazardType": "Small Craft Advisory",
+      },
+      Object {
+        "hazardText": "Gale Warning in effect from June 10,  03:00 PM PDT until June 12, 03:00 AM PDT",
+        "hazardType": "Gale Warning",
+      },
+    ],
+    "hazardsBackup": Array [
+      Object {
+        "hazardText": "Small craft advisory in effect until 3 pm pdt this afternoon",
+        "hazardType": "Small Craft Advisory",
+      },
+      Object {
+        "hazardText": "Gale warning in effect from 3 pm pdt this afternoon through late sunday night",
+        "hazardType": "Gale Warning",
+      },
+    ],
+  },
+  Object {
+    "hazards": Array [
+      Object {
+        "hazardText": "Gale Warning  until June 15, 03:00 AM PDT",
+        "hazardType": "Gale Warning",
+      },
+    ],
+    "hazardsBackup": Array [
+      Object {
+        "hazardText": "Gale warning in effect through late wednesday night",
+        "hazardType": "Gale Warning",
+      },
+    ],
+  },
+  Object {
+    "hazards": Array [],
+    "hazardsBackup": Array [],
+  },
+  Object {
+    "hazards": Array [
+      Object {
+        "hazardText": "Hazardous Weather Outlook ",
+        "hazardType": "",
+      },
+      Object {
+        "hazardText": "Short Term Forecast ",
+        "hazardType": "",
+      },
+    ],
+    "hazardsBackup": Array [],
+  },
+]
 `;
 
 exports[`forecast scrape returns last updated 1`] = `
-Object {
-  "dateTime": 2017-06-10T15:25:00.000Z,
-  "localDayOfWeek": "SAT",
-}
+Array [
+  Object {
+    "dateTime": 2017-06-10T15:25:00.000Z,
+    "localDayOfWeek": "SAT",
+  },
+  Object {
+    "dateTime": 2017-06-13T21:15:00.000Z,
+    "localDayOfWeek": "TUE",
+  },
+  Object {
+    "dateTime": 2017-06-13T18:43:00.000Z,
+    "localDayOfWeek": "TUE",
+  },
+  Object {
+    "dateTime": 2017-06-13T19:49:00.000Z,
+    "localDayOfWeek": "TUE",
+  },
+]
 `;

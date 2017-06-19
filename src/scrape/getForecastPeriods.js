@@ -25,14 +25,14 @@ function getForecastPeriods($: any): forecastPeriods {
   }, []);
 }
 
-function getDateTime(label, lastUpdated) {
+function getDateTime(label, lastUpdated): string {
   const stringToCheck = _.find(weekdaysShort, check => label.toUpperCase().indexOf(check) > -1)
     ? `${getThisOrNext(label, lastUpdated)} ${label}`.replace('Night', 'Afternoon')
     : label;
   return chrono.parseDate(stringToCheck, new Date(lastUpdated.dateTime));
 }
 
-function getThisOrNext(label, lastUpdated) {
+function getThisOrNext(label, lastUpdated): string {
   // does the day of week come before lastUpdated day of week ?
   // note: sunday comes before monday
   // if yes, then the forecast is for 'next' week

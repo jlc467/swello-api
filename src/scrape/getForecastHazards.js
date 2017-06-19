@@ -3,17 +3,24 @@ const _ = require('lodash');
 const sentenceCase = require('sentence-case');
 const HAZARD_TYPES = ['Small Craft Advisory', 'Gale Warning'];
 
-export type hazards = {| hazardType: string, hazardText: string |}[];
-export type forecastHazards = {| hazards: hazards, hazardsBackup: hazards |};
+type hazard = {| hazardType: string, hazardText: string |};
+export type forecastHazards = {| hazards: hazard[], hazardsBackup: hazard[] |};
 function getForecastHazards($: any): forecastHazards {
-  const hazards = $('[id=anchor-hazards]').map((i, el) => $(el).text()).get();
   return {
-    hazards: setHazardTypes(hazards),
+    hazards: $('[id=anchor-hazards]').map((i, el) => setHazardType($(el).text())).get(),
     hazardsBackup: getHazardsBackup($)
   };
 }
 
-function getHazardsBackup($: any) {
+function setHazardType(hazardText: string): hazard {
+  return {
+    hazardType:
+      _.find(HAZARD_TYPES, t => hazardText.toUpperCase().indexOf(t.toUpperCase()) > -1) || '',
+    hazardText
+  };
+}
+
+function getHazardsBackup($: any): hazard[] {
   const warningsNet = $('#detailed-forecast-body')
     .contents()
     .filter((i, el) => el.nodeType == 3)
@@ -42,17 +49,7 @@ function getHazardsBackup($: any) {
     },
     { warnings: [], start: 0 }
   );
-  return setHazardTypes(warnings.map(line => sentenceCase(_.trim(line, '.'))));
-}
-
-function setHazardTypes(hazards: string[]): hazards {
-  return _.map(hazards, hazardText => {
-    const hazardTypeMatch = _.find(
-      HAZARD_TYPES,
-      t => hazardText.toUpperCase().indexOf(t.toUpperCase()) > -1
-    );
-    return { hazardType: hazardTypeMatch ? hazardTypeMatch : '', hazardText };
-  });
+  return warnings.map(line => setHazardType(sentenceCase(_.trim(line, '.'))));
 }
 
 module.exports = getForecastHazards;

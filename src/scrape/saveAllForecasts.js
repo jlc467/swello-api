@@ -7,6 +7,7 @@ const getForecastHTML = require('./getForecastHTML');
 const getZones = require('./getZones');
 const parallel = require('async-await-parallel');
 const saveAllForecasts = async () => {
+  console.warn('Saving all forecasts');
   console.time(`saveAllForecasts`);
   const allZones = await getZones();
   await parallel(
@@ -14,7 +15,7 @@ const saveAllForecasts = async () => {
       const forecastHTML = await getForecastHTML(zonePublicId);
       if (!forecastHTML) {
         console.warn('Skipping forecast, no HTML found', zonePublicId);
-        return;
+        return null;
       }
       const parsed = scrapeForecast(cheerio.load(forecastHTML));
       console.info('Saving forecast', zonePublicId);
@@ -23,11 +24,11 @@ const saveAllForecasts = async () => {
       //console.log(JSON.stringify(parsed, null, 2));
       console.log('Saved forecast', forecastId);
       console.timeEnd(`saveForecast ${zonePublicId}`);
-      console.log(forecastId);
+      return forecastId;
     }),
     5
   );
   console.timeEnd(`saveAllForecasts`);
 };
 
-saveAllForecasts().catch(e => console.error('error', e));
+module.exports = saveAllForecasts;
