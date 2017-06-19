@@ -5,3 +5,5 @@ npm-debug.*
 test/coverage
 .env
 .DS_Store
+build/
+lib
