@@ -2,28 +2,28 @@
 const _ = require('lodash');
 const saveForecast = require('./saveForecast');
 const scrapeForecast = require('./scrapeForecast');
-const read = require('node-read');
 const cheerio = require('cheerio');
+const getForecastHTML = require('./getForecastHTML');
 const getZones = require('./getZones');
 const parallel = require('async-await-parallel');
 const saveAllForecasts = async () => {
   console.time(`saveAllForecasts`);
   const allZones = await getZones();
-
   await parallel(
     _.map(allZones, ({ zonePublicId, id }) => async () => {
       const forecastHTML = await getForecastHTML(zonePublicId);
       if (!forecastHTML) {
-        //TODO: log missing html
+        console.warn('Skipping forecast, no HTML found', zonePublicId);
         return;
       }
       const parsed = scrapeForecast(cheerio.load(forecastHTML));
-      console.log('attempting to save forecast', zonePublicId);
+      console.info('Saving forecast', zonePublicId);
       console.time(`saveForecast ${zonePublicId}`);
-      await saveForecast(parsed, id);
+      const forecastId = await saveForecast(parsed, id);
       //console.log(JSON.stringify(parsed, null, 2));
-      console.log('saved', zonePublicId);
+      console.log('Saved forecast', forecastId);
       console.timeEnd(`saveForecast ${zonePublicId}`);
+      console.log(forecastId);
     }),
     5
   );
@@ -31,18 +31,3 @@ const saveAllForecasts = async () => {
 };
 
 saveAllForecasts().catch(e => console.error('error', e));
-
-function getForecastHTML(zoneId: string): Promise<null | string> {
-  console.log('fetching forecast html');
-  console.time(`getForecastHTML ${zoneId}`);
-  return new Promise((resolve, reject) => {
-    read(`http://marine.weather.gov/MapClick.php?zoneid=${zoneId}`, (err, forecast, res) => {
-      console.log('got html', zoneId);
-      console.timeEnd(`getForecastHTML ${zoneId}`);
-      if (forecast && forecast.html) {
-        return resolve(forecast.html);
-      }
-      return null;
-    });
-  });
-}
