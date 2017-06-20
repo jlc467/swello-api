@@ -4,8 +4,7 @@
     "test-watch": "jest --watch --config test/jest.config.json",
     "test-update": "jest --updateSnapshot --config test/jest.config.json",
     "build": "flow-remove-types src/ --out-dir build",
-    "start": "node ./build/",
-    "scrape": "flow-node ./src/scrape/index"
+    "start": "node ./build/"
   },
   "dependencies": {
     "async-await-parallel": "^1.0.0",

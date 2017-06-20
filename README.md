@@ -22,5 +22,6 @@ yarn
 ```bash
 yarn test-watch #start jest in watch mode
 yarn test-update #update jest snapshots
-yarn scrape #scrape all forecasts and save them
+yarn build #strip flow types and output to /build/
+yarn start #start app
 ```
