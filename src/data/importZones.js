@@ -1,6 +1,6 @@
 // @flow
+require('dotenv').config();
 const { request, GraphQLClient } = require('graphql-request');
-
 const ENDPOINT = process.env.GRAPHQL_ENDPOINT;
 const client = new GraphQLClient(ENDPOINT, { headers: {} });
 

@@ -20,18 +20,27 @@ const saveForecast = async (parsed: parsed, zoneId: string): Promise<null | { id
     console.error('Unable to scrape forecast last updated', zoneId);
     return null;
   }
-  const query = `mutation {
-    zoneForecast: createZoneForecast(
-      forecastLastUpdated: "${new Date(forecastLastUpdated.dateTime).toISOString()}"
-      zoneId: "${zoneId}"
-      zoneForecastHazards: ${util.inspect(forecastHazards.hazards)}
-      zoneForecastPeriods: ${util.inspect(forecastPeriods)}
-      synopsis: "${forecastSynopsis || ''}"
-    ) {
-      id
+
+  const query = `mutation createZoneForecast($input: CreateZoneForecastInput!) {
+      createZoneForecast(input: $input) {
+        zoneForecast {
+          id
+        }
+      }
+    }`;
+
+  const variables = {
+    input: {
+      clientMutationId: 'foo',
+      forecastLastUpdated: new Date(forecastLastUpdated.dateTime).toISOString(),
+      synopsis: forecastSynopsis,
+      zoneId,
+      zoneForecastHazards: forecastHazards.hazards,
+      zoneForecastPeriods: forecastPeriods
     }
-  }`.replace(/'/g, '"');
-  return await client.request(query);
+  };
+
+  return await client.request(query, variables);
 };
 
 module.exports = saveForecast;
